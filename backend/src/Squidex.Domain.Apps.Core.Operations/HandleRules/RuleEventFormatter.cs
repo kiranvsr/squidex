@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using NodaTime.Text;
@@ -137,7 +136,7 @@ namespace Squidex.Domain.Apps.Core.HandleRules
             return CombineParts(text, parts);
         }
 
-        private string CombineParts(string text, List<TextPart> parts)
+        private static string CombineParts(string text, List<TextPart> parts)
         {
             var span = text.AsSpan();
 
@@ -225,7 +224,7 @@ namespace Squidex.Domain.Apps.Core.HandleRules
             return default;
         }
 
-        private (bool IsNew, Match) Match(string test)
+        private static (bool IsNew, Match) Match(string test)
         {
             var match = RegexPatternNew.Match(test);
 

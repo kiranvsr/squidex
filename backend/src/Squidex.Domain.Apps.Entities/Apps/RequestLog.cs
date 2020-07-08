@@ -5,10 +5,26 @@
 //  All rights reserved. Licensed under the MIT license.
 // ==========================================================================
 
-namespace Squidex.Domain.Apps.Events
+using NodaTime;
+
+namespace Squidex.Domain.Apps.Entities.Apps
 {
-    public static class SquidexHeaders
+    public struct RequestLog
     {
-        public static readonly string AppId = "AppId";
+        public Instant Timestamp;
+
+        public string? RequestMethod;
+
+        public string? RequestPath;
+
+        public string? UserId;
+
+        public string? UserClientId;
+
+        public long ElapsedMs;
+
+        public long Bytes;
+
+        public double Costs;
     }
 }
